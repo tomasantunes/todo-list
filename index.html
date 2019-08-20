@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>To-Do List</title>
+
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="node_modules/jquery-ui-dist/jquery-ui.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="main" id="app">
+    <table class="table-fill">
+      <thead>
+      <tr style="background-color: #6489c4; color: #fff;">
+        <th>Tasks</th>
+        <th style="width: 50px;"></th>
+        <th style="width: 50px;"></th>
+      </tr>
+      </thead>
+      <tbody data-bind="sortable: {data: tasks}">
+      <tr class="task">
+        <td data-bind="text: text, click: openEditTask" data-toggle="modal" data-target="#edit-task-modal"></td>
+        <td><input type="checkbox" class="form-control" style="width: 40px;" data-bind="checked: isChecked"></td>
+        <td><button class="btn btn-small btn-default" data-bind="click: removeTask"><i class="fa fa-times fa-2x"></i></button></td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan=2><input type="text" class="form-control" data-bind="textInput: newTask.text"></td>
+        <td><button class="btn btn-primary btn-block" data-bind="click: addTask">+</button></td>
+      </tr>
+      </tfoot>
+    </table>
+    <button class="btn btn-primary btn-block extra-btn" data-bind="click: clearAll">Clear All</button>
+  </div>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/knockout/build/output/knockout-latest.js"></script>
+  <script src="node_modules/knockout-sortable/build/knockout-sortable.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
